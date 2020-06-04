@@ -7,8 +7,8 @@ $heightCm = $_GET["heightCm"];
 /* $name = 'andy';
 $weightKg = 50;
 $heightCm = 160; */
-$heightMeters = $heightCm/10;
-$heightSquared = $heightMeters * $heightMeters;
+$heightMeters = $heightCm/100;
+$heightSquared = pow($heightMeters, 2); //$heightMeters * $heightMeters;
 
 $IMC = $weightKg/($heightSquared);
 if ($IMC < 18.5) 

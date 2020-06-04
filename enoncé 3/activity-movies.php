@@ -1,54 +1,40 @@
-<?php
 
-$directorsLimit = $argv[1] ?? 5;
 
-$moviesLimit = $argv[2] ?? 5;
+<?php 
 
-$directors = [
+$realisateurs = [
 
-"Steven Spielberg" => ["The Terminal", "Minority Report", "Catch Me If You Can", "Lincoln", "Bridge of Spies"],
+        "realisateur1" => ["film1", "film2", "film3", "film4", "film5"],
+        
+        "realisateur2" => ["film1", "film2", "film3", "film4", "film5"],
+        
+        "realisateur3" => ["film1", "film2", "film3", "film4", "film5"],
+        
+        "realisateur4" => ["film1", "film2", "film3", "film4", "film5"],
+        
+        "realisateur5" => ["film1", "film2", "film3", "film4", "film5"]
+        
+];
 
-"Christopher Nolan" => ["Dunkirk", "Interstellar", "The Dark Knight Rises", "Inception", "Memento"],
 
-"Martin Scorsese" => ["Silence", "Hugo", "Shutter Island", "The Departed", "Gangs of New York"],
+function funcforrepeateArg ($x=5, $y=5){
 
-"Spike Lee" => ["Do the Right Thing", "Malcolm X", "Summer of Sam", "25th Hour", "Inside Man"],
+    GLOBAL $realisateurs;  //  make var of table global
 
-                
-
-"Lynne Ramsey" => ["Ratcatcher", "Swimmer", "Morvern Callar", "We Need To Talk About Kevin", "You Were Never Really Here"]
-
-                          ];
-
-$directorsCounter = 1;
-
-foreach ($directors as $director => $movies) {
-
-        if ($directorsCounter > $directorsLimit) {
-
-                break;
-
-}
-
-        echo "$director's movies: \n";
-
-        $moviesCounter = 1;
-
-        foreach ($movies as $movie) {
-
-                if ($moviesCounter > $moviesLimit) {
-
-                        break;
-
-                }
-
-                echo " > $movie " . PHP_EOL; //(PHP_EOL and \n and <br/> have the same effect)
-                // echo " >" .$movie. "\n" ; //(PHP_EOL and \n and <br/> have the same effect)
-
-                $moviesCounter++;
-
+    $nbrRealisateurs = array_rand($realisateurs, $x); //pour determiner le nombre des realisateurs à afficher (note :array_rand() expects parameter 1 to be array)
+    $nbrFilms = array_rand($nbrRealisateurs, $y);        // pour determiner le nombre de titre à afficher (note: Second argument has to be between 1 and the number of elements in the array)
+    
+        foreach($nbrRealisateurs as $cle => $value){
+        echo "<b>les films de $value :</b> <br><br>";
+    
+        foreach ($nbrFilms as $key){
+            echo $realisateurs[$value][$key] .'<br>';
+    
+        }
+    
+        echo '<br>';
         }
 
-        $directorsCounter++;
+}funcforrepeateArg(4,2)
 
-}
+?>
