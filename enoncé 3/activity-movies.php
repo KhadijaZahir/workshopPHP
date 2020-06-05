@@ -20,7 +20,7 @@ $realisateurs = [
 function funcforrepeateArg ($x=5, $y=5){
 
     GLOBAL $realisateurs;  //  make var of table global
-
+    // array_rand : prend une ou pkusieurs cles au hasard dans un array
     $nbrRealisateurs = array_rand($realisateurs, $x); //pour determiner le nombre des realisateurs à afficher (note :array_rand() expects parameter 1 to be array)
     $nbrFilms = array_rand($nbrRealisateurs, $y);        // pour determiner le nombre de titre à afficher (note: Second argument has to be between 1 and the number of elements in the array)
     
